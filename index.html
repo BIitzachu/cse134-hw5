@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="2.png" />
+    <title>Ben Anderson Portfolio CSE 134B Homework 2 Part 2</title>
+    <style>
+        body {
+            border: 1px solid black;
+        }
+
+        portfolio-banner {
+            display: block;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 2px solid #333;
+            background: #f4f4f4;
+        }
+
+        portfolio-banner h2 {
+            margin-top: 0;
+        }
+
+        portfolio-banner p {
+            margin-bottom: 0;
+        }
+    </style>
+    <script>
+        class HelloWorld extends HTMLElement {
+            connectedCallback() {
+                console.log("Hello World!");
+            }
+        }
+        customElements.define('hello-world', HelloWorld);
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="experiments.html">Experiments</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <article>
+        <h1>Ben Anderson Portfolio CSE 134B Homework 2 Part 2</h1>
+
+        <portfolio-banner>
+            <h2>Welcome to My Portfolio!</h2>
+            <p>My name is Ben Anderson, and I am a student at UCSD studying Computer Science. This portfolio showcases my projects, resume, and experiments.</p>
+        </portfolio-banner>
+
+        <hello-world></hello-world>
+
+        
+
+        <h2>Featured Projects</h2>
+        <p>Here are some of my featured projects:</p>
+        <ol>
+            <li><em>Project 1:</em> Description of Project 1</li>
+            <li><em>Project 2:</em> Description of Project 2</li>
+            <li><em>Project 3:</em> Description of Project 3</li>
+        </ol>
+
+        <h2>Skills</h2>
+        <p>I have experience in the following areas:</p>
+        <ul>
+            <li><strong>Languages:</strong> <span class="skill">C</span>, <span class="skill">C++</span>, <span class="skill">C#</span>, <span class="skill">Python</span>, <span class="skill">Java</span></li>
+            <li><strong>Game Development:</strong> <span class="skill">Unity</span></li>
+            <li><strong>Data Structures and Algorithms:</strong></li>
+        </ul>
+    </article>
+
+    <hr />
+    <footer>
+        <h3>Contact Information</h3>
+        Email: <a href="mailto:bla002@ucsd.edu">bla002@ucsd.edu</a>
+        <br />
+        Github: <a href="https://github.com/biitzachu">biitzachu</a>
+        <br />
+        LinkedIn: <a href="https://www.linkedin.com/in/benjamin-anderson-891560266/">Ben Anderson</a>
+    </footer>
+</body>
+
+</html>

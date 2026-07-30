@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ben Anderson Portfolio CSE 134B Homework 2 Part 2</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="experiments.html">Experiments</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <h1>Experiments</h1>
+    
+    <audio controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <br />
+
+    <video controls width="320" height="240">
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <br />
+
+    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+        Your browser does not support the canvas element.
+    </canvas>
+
+    <script>
+        const c = myCanvas, x = c.getContext('2d');
+        x.fillStyle = '#4CAF50'; x.fillRect(20, 20, 80, 50);
+        x.strokeStyle = '#000'; x.strokeRect(20, 20, 80, 50);
+        x.beginPath(); x.arc(140, 50, 25, 0, Math.PI * 2); x.fillStyle = '#2196F3'; x.fill();
+        x.fillStyle = '#fff'; x.fillText('Canvas', 112, 95);
+    </script>
+
+    <hr />
+
+    <h2>Extra Credit</h2>
+
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>E</mi>
+        <mo>=</mo>
+        <mi>m</mi>
+        <msup>
+            <mi>c</mi>
+            <mn>2</mn>
+        </msup>
+    </math>
+
+    <br />
+    <h2>Extra Credit Answer:</h2>
+    <p>Since Chrome did not support the MathML element until Chrome 109 released in 2023. It was not supported in one of the most popular browsers meaning that developers would not use it because of compatibility issues. Other browsers like edge also had limited support but chrome not supporting I think would lead to developers avoiding using it.</p>
+
+    <hr />
+    <footer>
+        <template>
+            <p>Template content</p>
+        </template>
+        <h3>Contact Information</h3>
+        Email: <a href="mailto:bla002@ucsd.edu">bla002@ucsd.edu</a>
+        <br />
+        Github: <a href="https://github.com/biitzachu">biitzachu</a>
+        <br />
+        LinkedIn: <a href="https://www.linkedin.com/in/benjamin-anderson-891560266/">Ben Anderson</a>
+    </footer>
+</body>
+
+</html>
