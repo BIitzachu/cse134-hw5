@@ -1,0 +1,16 @@
+<header>
+    <nav>
+        <ul>
+            {%- for item in site.nav %}
+            {%- set isActive = (item.url == "/" and page.url == "/") or (item.url != "/" and page.url.startsWith(item.url)) %}
+            <li><a href="{{ item.url }}"{% if isActive %} aria-current="page"{% endif %}>{{ item.text }}</a></li>
+            {%- endfor %}
+        </ul>
+    </nav>
+    <fieldset class="theme-switcher" role="group" aria-label="Theme selector">
+        <legend>Theme</legend>
+        <button type="button" data-theme-control="light" aria-pressed="false">Light</button>
+        <button type="button" data-theme-control="dark" aria-pressed="false">Dark</button>
+        <button type="button" data-theme-control="auto" aria-pressed="false">System</button>
+    </fieldset>
+</header>

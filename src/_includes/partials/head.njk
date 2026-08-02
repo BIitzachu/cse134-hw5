@@ -1,0 +1,27 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>
+    document.documentElement.classList.add('js');
+
+    (() => {
+        try {
+            const savedTheme = localStorage.getItem('portfolio-theme-preference');
+            const theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'auto';
+
+            if (theme === 'light' || theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+        } catch {
+            // If storage is unavailable, fall back to the CSS default without breaking load.
+        }
+    })();
+</script>
+<link rel="icon" type="image/png" href="{{ site.favicon }}" />
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/global.css" />
+<link rel="stylesheet" href="/assets/css/site.css" />
+<title>{{ title }} · {{ site.title }}</title>
+<meta name="description" content="{{ description }}" />
+{%- for src in extraHeadScripts | default([]) %}
+<script src="{{ src }}"></script>
+{%- endfor %}

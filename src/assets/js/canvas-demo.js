@@ -1,0 +1,12 @@
+const c = document.getElementById('myCanvas');
+const x = c.getContext('2d');
+x.fillStyle = '#4CAF50';
+x.fillRect(20, 20, 80, 50);
+x.strokeStyle = '#000';
+x.strokeRect(20, 20, 80, 50);
+x.beginPath();
+x.arc(140, 50, 25, 0, Math.PI * 2);
+x.fillStyle = '#2196F3';
+x.fill();
+x.fillStyle = '#fff';
+x.fillText('Canvas', 112, 95);

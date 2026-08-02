@@ -1,0 +1,14 @@
+{
+  "name": "ben-anderson-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ben Anderson's portfolio, built with Eleventy (11ty).",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

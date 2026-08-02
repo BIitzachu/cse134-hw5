@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+title: Contact
+description: "Get in contact."
+extraBodyScripts:
+  - /assets/js/contact-form.js
+---
+<h2>Contact Me</h2>
+<p>Send a message here!</p>
+
+<form id="contactForm">
+    <fieldset>
+        <legend>Send a Message</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br />
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br />
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <br />
+        <progress value="70" max="100">70/100 of character limit</progress>
+        <br />
+        <button type="submit">Submit</button>
+    </fieldset>
+</form>
+
+<dialog id="contactDialog">
+    <p>Thank you for your message!</p>
+    <button id="closeDialog" type="button">Close</button>
+</dialog>
+
+<noscript>
+    Contact form requires JavaScript to function properly. Please enable JavaScript in your browser settings.
+</noscript>
+
+<hr />
+<h2>Contact Information</h2>
+<p><em>LinkedIn:</em> <a href="{{ site.linkedin.url }}">{{ site.linkedin.label }}</a></p>
+<p><em>Email:</em> <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>

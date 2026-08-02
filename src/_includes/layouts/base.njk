@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+{% include "partials/head.njk" %}
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+{% include "partials/header.njk" %}
+
+    <h1>{{ title }}</h1>
+
+    <main id="main-content">
+{{ content | safe }}
+    </main>
+
+    <hr />
+{% include "partials/footer.njk" %}
+
+    <script src="/assets/js/theme-toggle.js"></script>
+    {%- for src in extraBodyScripts | default([]) %}
+    <script src="{{ src }}"></script>
+    {%- endfor %}
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: Experiments
+description: "Hw 2 Experiments."
+extraBodyScripts:
+  - /assets/js/canvas-demo.js
+---
+<audio controls>
+    <source src="/assets/media/audio.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<br />
+
+<video controls width="320" height="240">
+    <source src="/assets/media/video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<br />
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+    Your browser does not support the canvas element.
+</canvas>
+
+<template id="demoTemplate">
+    <p>Template content</p>
+</template>

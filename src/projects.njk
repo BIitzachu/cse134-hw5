@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+title: My Projects
+description: "Project showcase."
+---
+<p>Here are some of the projects I have worked on:</p>
+<div class="projects-container">
+    {%- for project in collections.projects %}
+    <div class="project-card">
+        <h2 class="project-title"><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
+        {{ project.data.media | safe }}
+        <p class="project-description">{{ project.data.description }}</p>
+    </div>
+    {%- endfor %}
+</div>

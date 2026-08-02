@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+title: Home
+description: "Home page for portfolio"
+extraHeadScripts:
+  - /assets/js/hello-world.js
+extraBodyScripts:
+  - /assets/js/usgs-quake-feed.js
+---
+<portfolio-banner>
+    <h2>Welcome to My Portfolio!</h2>
+    <p>My name is {{ site.author }}, and I am a student at UCSD studying Computer Science. This portfolio showcases my projects, resume, and experiments.</p>
+</portfolio-banner>
+
+<hello-world></hello-world>
+
+<usgs-quake-feed feed="all_day" limit="3">
+    <p>Recent earthquake summaries will appear here when JavaScript is available.</p>
+</usgs-quake-feed>
+
+<h2>Featured Projects</h2>
+<p>Here are some of my featured projects:</p>
+<ol>
+    {%- for project in collections.projects %}
+    <li><em>{{ project.data.title }}:</em> {{ project.data.description }}</li>
+    {%- endfor %}
+</ol>
+
+<h2>Skills</h2>
+<p>I have experience in the following areas:</p>
+<ul>
+    <li><strong>Languages:</strong> <span class="skill">C</span>, <span class="skill">C++</span>, <span class="skill">C#</span>, <span class="skill">Python</span>, <span class="skill">Java</span></li>
+    <li><strong>Game Development:</strong> <span class="skill">Unity</span></li>
+    <li><strong>Data Structures and Algorithms</strong></li>
+</ul>
