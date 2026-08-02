@@ -22,5 +22,6 @@ module.exports = {
     { text: "Contact", url: "/contact/" },
     { text: "Resume", url: "/resume/" },
     { text: "Experiments", url: "/experiments/" },
+    { text: "Search", url: "/search/" },
   ],
 };

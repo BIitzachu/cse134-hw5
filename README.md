@@ -39,3 +39,8 @@ I chose Eleventy as the SSG. It removed the need for copypasted headers, footers
 
 Extra Credit
 
+What gets built
+Roughly how large the index is on your site
+Why it needs no search server.
+
+It builds a pagefind folder with pagefind.js and index files that help with searchable text. The index is rooughly around the size of a MB. It needs no search server because the index is built into the site and can be searched locally without needing a server to process search queries.

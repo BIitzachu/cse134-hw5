@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+title: Search
+description: "Search Ben Anderson's portfolio site."
+excludeFromSearch: true
+extraBodyScripts:
+  - /assets/js/search.js
+---
+<p>Search across every page of this portfolio.</p>
+
+<form id="searchForm" role="search">
+    <label for="searchInput">Search this site</label>
+    <input type="search" id="searchInput" name="q" autocomplete="off" placeholder="Try &ldquo;projects&rdquo; or &ldquo;resume&rdquo;">
+</form>
+
+<p id="searchStatus" aria-live="polite">Start typing to see results.</p>
+
+<ul id="searchResults" class="search-results"></ul>
+
+<noscript>
+    <p>Search requires JavaScript to run in your browser. Until then, you can browse the <a href="/sitemap.xml">full sitemap</a> to find pages.</p>
+</noscript>

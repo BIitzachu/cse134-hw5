@@ -221,3 +221,46 @@ dialog {
     }
   }
 }
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--accent);
+  color: var(--paper);
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 0.35rem 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+.search-results {
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.search-results__item {
+  padding: var(--space-2);
+  border: var(--border);
+  background: var(--paper);
+}
+
+.search-results__item a {
+  font-weight: 700;
+}
+
+.search-results__item p {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+.search-results__item mark {
+  background: var(--accent);
+  color: var(--paper);
+  padding: 0 0.15em;
+}
