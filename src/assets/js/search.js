@@ -15,16 +15,15 @@ async function loadPagefind() {
 }
 
 function renderExcerpt(container, excerptHtml) {
-  const template = document.createElement('template');
-  template.innerHTML = excerptHtml;
+  const documentFragment = new DOMParser().parseFromString(excerptHtml || '', 'text/html');
 
-  for (const node of template.content.childNodes) {
+  for (const node of documentFragment.body.childNodes) {
     if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'MARK') {
       const mark = document.createElement('mark');
-      mark.textContent = node.textContent;
+      mark.textContent = node.textContent || '';
       container.append(mark);
     } else {
-      container.append(document.createTextNode(node.textContent));
+      container.append(document.createTextNode(node.textContent || ''));
     }
   }
 }

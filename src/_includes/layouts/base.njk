@@ -18,9 +18,9 @@
     <hr />
 {% include "partials/footer.njk" %}
 
-    <script src="/assets/js/theme-toggle.js"></script>
+    <script src="/assets/js/theme-toggle.js" defer></script>
     {%- for src in extraBodyScripts | default([]) %}
-    <script src="{{ src }}"></script>
+    <script src="{{ src }}" defer></script>
     {%- endfor %}
 </body>
 

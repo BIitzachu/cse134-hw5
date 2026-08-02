@@ -23,5 +23,5 @@
 <title>{{ title }} · {{ site.title }}</title>
 <meta name="description" content="{{ description }}" />
 {%- for src in extraHeadScripts | default([]) %}
-<script src="{{ src }}"></script>
+<script src="{{ src }}" defer></script>
 {%- endfor %}

@@ -1,30 +1,66 @@
 const template = document.createElement('template');
 
-template.innerHTML = `
-  <article class="quake-feed" data-state="idle" aria-busy="false">
-    <style>
-      usgs-quake-feed { display: block; max-inline-size: 42rem; margin: var(--space-3) auto; }
-      .quake-feed { display: grid; gap: 0.75rem; padding: 1rem; border: var(--border); border-radius: 0.85rem; background: var(--paper); }
-      .quake-feed__title, .quake-feed__status, .quake-feed__meta, .quake-feed__source { margin: 0; }
-      .quake-feed__title { font-size: 1.3rem; line-height: 1.1; }
-      .quake-feed__status { min-block-size: 2.5rem; padding: 0.75rem; border-radius: 0.65rem; background: var(--panel); }
-      .quake-feed__list { display: grid; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
-      .quake-feed__item { display: grid; gap: 0.1rem; padding: 0.7rem 0.8rem; border-left: 0.25rem solid var(--accent); border-radius: 0.45rem; background: var(--panel); }
-      .quake-feed__item strong { font-size: 0.98rem; }
-      .quake-feed__item time, .quake-feed__item span, .quake-feed__meta, .quake-feed__source { color: var(--muted); font-size: var(--text-s); }
-      .quake-feed button { width: fit-content; border: 0; border-radius: 999px; padding: 0.65rem 0.9rem; background: var(--accent); color: var(--paper); font: inherit; font-weight: 700; cursor: pointer; }
-      .quake-feed button[hidden] { display: none; }
-      .quake-feed[data-state='idle'] .quake-feed__list, .quake-feed[data-state='empty'] .quake-feed__list { display: none; }
-      .quake-feed[data-state='error'] { border-color: var(--accent); }
-    </style>
-    <h2 class="quake-feed__title" data-title>USGS recent quakes</h2>
-    <p class="quake-feed__status" data-status>Idle.</p>
-    <ul class="quake-feed__list" data-list></ul>
-    <button type="button" data-retry hidden>Retry</button>
-    <p class="quake-feed__meta" data-meta></p>
-    <p class="quake-feed__source">Source: <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php" rel="noopener noreferrer" target="_blank">USGS Earthquake Hazards Program</a></p>
-  </article>
-`;
+{
+  const style = document.createElement('style');
+  style.textContent = `
+    usgs-quake-feed { display: block; max-inline-size: 42rem; margin: var(--space-3) auto; }
+    .quake-feed { display: grid; gap: 0.75rem; padding: 1rem; border: var(--border); border-radius: 0.85rem; background: var(--paper); }
+    .quake-feed__title, .quake-feed__status, .quake-feed__meta, .quake-feed__source { margin: 0; }
+    .quake-feed__title { font-size: 1.3rem; line-height: 1.1; }
+    .quake-feed__status { min-block-size: 2.5rem; padding: 0.75rem; border-radius: 0.65rem; background: var(--panel); }
+    .quake-feed__list { display: grid; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+    .quake-feed__item { display: grid; gap: 0.1rem; padding: 0.7rem 0.8rem; border-left: 0.25rem solid var(--accent); border-radius: 0.45rem; background: var(--panel); }
+    .quake-feed__item strong { font-size: 0.98rem; }
+    .quake-feed__item time, .quake-feed__item span, .quake-feed__meta, .quake-feed__source { color: var(--muted); font-size: var(--text-s); }
+    .quake-feed button { width: fit-content; border: 0; border-radius: 999px; padding: 0.65rem 0.9rem; background: var(--accent); color: var(--paper); font: inherit; font-weight: 700; cursor: pointer; }
+    .quake-feed button[hidden] { display: none; }
+    .quake-feed[data-state='idle'] .quake-feed__list, .quake-feed[data-state='empty'] .quake-feed__list { display: none; }
+    .quake-feed[data-state='error'] { border-color: var(--accent); }
+  `;
+
+  const card = document.createElement('article');
+  card.className = 'quake-feed';
+  card.dataset.state = 'idle';
+  card.setAttribute('aria-busy', 'false');
+
+  const title = document.createElement('h2');
+  title.className = 'quake-feed__title';
+  title.dataset.title = '';
+  title.textContent = 'USGS recent quakes';
+
+  const status = document.createElement('p');
+  status.className = 'quake-feed__status';
+  status.dataset.status = '';
+  status.textContent = 'Idle.';
+
+  const list = document.createElement('ul');
+  list.className = 'quake-feed__list';
+  list.dataset.list = '';
+
+  const retry = document.createElement('button');
+  retry.type = 'button';
+  retry.dataset.retry = '';
+  retry.hidden = true;
+  retry.textContent = 'Retry';
+
+  const meta = document.createElement('p');
+  meta.className = 'quake-feed__meta';
+  meta.dataset.meta = '';
+
+  const source = document.createElement('p');
+  source.className = 'quake-feed__source';
+  source.textContent = 'Source: ';
+
+  const sourceLink = document.createElement('a');
+  sourceLink.href = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php';
+  sourceLink.rel = 'noopener noreferrer';
+  sourceLink.target = '_blank';
+  sourceLink.textContent = 'USGS Earthquake Hazards Program';
+
+  source.append(sourceLink);
+  card.append(title, status, list, retry, meta, source);
+  template.content.append(style, card);
+}
 
 const FEEDS = {
   all_hour: 'past hour',
