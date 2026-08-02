@@ -3,7 +3,26 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Ben Anderson Portfolio CSE 134B Homework 2 Part 2</title>
+    <script>
+        document.documentElement.classList.add('js');
+
+        (() => {
+            try {
+                const savedTheme = localStorage.getItem('portfolio-theme-preference');
+                const theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'auto';
+
+                if (theme === 'light' || theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', theme);
+                }
+            } catch {
+                // If storage is unavailable, fall back to the CSS default without breaking load.
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="tokens.css" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="site.css" />
+    <title>Resume</title>
 </head>
 <body>
     <header>
@@ -17,6 +36,12 @@
                 <li><a href="experiments.html">Experiments</a></li>
             </ul>
         </nav>
+        <fieldset class="theme-switcher" role="group" aria-label="Theme selector">
+            <legend>Theme</legend>
+            <button type="button" data-theme-control="light" aria-pressed="false">Light</button>
+            <button type="button" data-theme-control="dark" aria-pressed="false">Dark</button>
+            <button type="button" data-theme-control="auto" aria-pressed="false">System</button>
+        </fieldset>
     </header>
     
     <h1>Resume</h1>
@@ -33,6 +58,7 @@
         <br />
         LinkedIn: <a href="https://www.linkedin.com/in/benjamin-anderson-891560266/">Ben Anderson</a>
     </footer>
+    <script src="theme-toggle.js"></script>
 </body>
 
 </html>

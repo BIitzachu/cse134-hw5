@@ -1,0 +1,223 @@
+/* Page shell and component layout for the portfolio site. */
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+html:not(.js) .theme-switcher {
+  display: none;
+}
+
+body {
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  > header,
+  > footer {
+    background: var(--panel);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .theme-switcher {
+    margin-left: auto;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .theme-switcher button {
+    border: var(--border);
+    background: var(--surface-strong);
+    color: var(--ink);
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .theme-switcher button.is-active {
+    background: var(--accent);
+    color: var(--paper);
+    border-color: var(--accent);
+  }
+
+  > header {
+    border-block-end: var(--border);
+    align-items: center;
+
+    nav {
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+
+        &:hover,
+        &:focus-visible {
+          color: var(--accent);
+          background: rgba(227, 6, 19, 0.08);
+        }
+      }
+    }
+  }
+
+  > h1 {
+    width: min(100%, 72rem);
+    margin: var(--space-3) auto 0;
+    padding: 0 var(--space-3);
+    font-size: clamp(1.75rem, 2.2vw + 1rem, 2.5rem);
+  }
+
+  > main,
+  > article {
+    width: min(100%, 72rem);
+    margin: 0 auto;
+    padding: var(--space-3);
+  }
+
+  > footer {
+    border-block-start: var(--border);
+    color: var(--muted);
+  }
+
+  > hr {
+    width: min(100%, 72rem);
+    margin: var(--space-3) auto;
+    border: 0;
+    border-top: var(--rule);
+  }
+}
+
+section,
+form,
+.project-card,
+dialog {
+  margin-block: var(--space-3);
+  padding: var(--space-2);
+  border: var(--border);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+usgs-quake-feed {
+  display: block;
+  margin-block: var(--space-3);
+}
+
+fieldset {
+  border: var(--border);
+  padding: var(--space-2);
+}
+
+legend {
+  padding-inline: 0.5rem;
+  font-weight: 700;
+}
+
+label,
+input,
+textarea,
+button,
+progress {
+  display: block;
+  width: 100%;
+}
+
+input,
+textarea,
+button {
+  margin-block: 0.5rem;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+}
+
+button {
+  width: auto;
+  border: 0;
+  background: var(--accent);
+  color: var(--paper);
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.9;
+  }
+}
+
+textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.projects-container {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  margin-block: var(--space-3);
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  img,
+  svg,
+  iframe,
+  picture {
+    width: 100%;
+    height: auto;
+    border: var(--border);
+    background: var(--paper);
+  }
+}
+
+embed,
+audio,
+video,
+canvas {
+  width: min(100%, 32rem);
+  max-width: 100%;
+}
+
+dialog {
+  max-width: 24rem;
+  margin: var(--space-3) auto;
+}
+
+@media (max-width: 40rem) {
+  body {
+    > header,
+    > footer,
+    > h1,
+    > main,
+    > article {
+      padding-inline: var(--space-2);
+    }
+
+    > header {
+      nav {
+        ul {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+    }
+
+    > h1 {
+      margin-top: var(--space-2);
+    }
+  }
+}
