@@ -4,7 +4,7 @@
 <head>
 {% include "partials/head.njk" %}
 </head>
-<body>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
 {% include "partials/header.njk" %}
@@ -18,9 +18,9 @@
     <hr />
 {% include "partials/footer.njk" %}
 
-    <script src="/assets/js/theme-toggle.js" defer></script>
+    <script src="/assets/js/theme-toggle.js"></script>
     {%- for src in extraBodyScripts | default([]) %}
-    <script src="{{ src }}" defer></script>
+    <script src="{{ src }}"></script>
     {%- endfor %}
 </body>
 

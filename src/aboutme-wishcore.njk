@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+title: About Me — Wishcore
+description: "About Me but in Wishcore"
+extraStylesheets:
+  - /assets/css/wishcore.css
+extraBodyScripts:
+  - /assets/js/wishcore.js
+bodyClass: wishcore-page
+---
+<div class="wishcore-sparkles" aria-hidden="true">
+    <span>⋆</span><span>✦</span><span>☾</span><span>✧</span>
+</div>
+
+<p class="wishcore-eyebrow">✧ a softer version of this page ✧</p>
+
+<section class="wishcore-card">
+    <h2>Introduction</h2>
+    <p>Hello! I'm Ben Anderson, a computer science student at UC San Diego.</p>
+    <p>I am passionate about software development and have experience in various programming languages.</p>
+</section>
+
+<section class="wishcore-card">
+    <h2>Education</h2>
+    <p><b>High School:</b> <i>Mountain View High School</i></p>
+    <p><b>Bachelor's:</b> <i>University of California, Merced</i></p>
+    <p><b>Bachelor's (Transfer):</b> <i>University of California, San Diego</i></p>
+    <p><b>Master's:</b> <i>University of California, San Diego</i></p>
+</section>
+
+<button type="button" id="wishToggle" class="wish-toggle" hidden aria-expanded="false" aria-controls="wishNote">
+    ✧ Make a wish ✧
+</button>
+
+<aside class="wish-note" id="wishNote" hidden>
+    <p>A quiet wish: that whoever's reading this finds something today that makes things feel a little softer. ⋆｡‧˚ʚ🩵ɞ˚‧｡⋆</p>
+</aside>
+
+<p class="wishcore-note">This is a restyled companion to the <a href="/aboutme/">default About Me page</a> — same words, softer medium.</p>

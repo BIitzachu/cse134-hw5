@@ -1,0 +1,173 @@
+/* Wishcore aesthetic system for the About Me page.
+   Source: https://aesthetics.fandom.com/wiki/Wishcore*/
+
+body.wishcore-page {
+  --ink: #5a4a5e;
+  --paper: #fff8f5;
+  --panel: #ffe6f2;
+  --accent: #ff8fc0;
+  --muted: #9b7fa6;
+  --border-color: #ffc2e0;
+  --surface-strong: #ffffff;
+  --border: 1px solid var(--border-color);
+  --rule: 3px solid var(--accent);
+
+  --wish-blue: #cdeeff;
+  --wish-star: #f3b73f;
+  --wish-shimmer: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0) 60%);
+
+  position: relative;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(205, 238, 255, 0.55), transparent 40%),
+    radial-gradient(circle at 85% 12%, rgba(255, 214, 232, 0.6), transparent 45%),
+    linear-gradient(180deg, #fff8f5, #ffeef7);
+  font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+}
+
+/* Headings pick up the accent color plus a small star motif. */
+body.wishcore-page h1,
+body.wishcore-page h2 {
+  color: var(--accent);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+body.wishcore-page h2::before {
+  content: "✧ ";
+  color: var(--wish-star);
+}
+
+/* The site.css nav-hover color is a hardcoded rose, independent of --accent;
+   override it here so hover state matches the new palette. */
+body.wishcore-page header nav a:hover,
+body.wishcore-page header nav a:focus-visible {
+  background: rgba(255, 143, 192, 0.18);
+  color: var(--accent);
+}
+
+/* Decorative floating stars/moon, purely ornamental (aria-hidden in markup). */
+body.wishcore-page .wishcore-sparkles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body.wishcore-page .wishcore-sparkles span {
+  position: absolute;
+  color: var(--wish-star);
+  font-size: 1.4rem;
+  opacity: 0.55;
+}
+
+body.wishcore-page .wishcore-sparkles span:nth-child(1) { top: 8%; left: 6%; }
+body.wishcore-page .wishcore-sparkles span:nth-child(2) { top: 18%; right: 10%; font-size: 1rem; }
+body.wishcore-page .wishcore-sparkles span:nth-child(3) { bottom: 14%; left: 12%; font-size: 1.8rem; }
+body.wishcore-page .wishcore-sparkles span:nth-child(4) { bottom: 22%; right: 8%; font-size: 1.1rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  body.wishcore-page .wishcore-sparkles span {
+    animation: wishcore-float 7s ease-in-out infinite;
+  }
+
+  body.wishcore-page .wishcore-sparkles span:nth-child(2) { animation-delay: 1.5s; }
+  body.wishcore-page .wishcore-sparkles span:nth-child(3) { animation-delay: 3s; }
+  body.wishcore-page .wishcore-sparkles span:nth-child(4) { animation-delay: 4.5s; }
+
+  @keyframes wishcore-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+body.wishcore-page .wishcore-eyebrow {
+  text-align: center;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: var(--text-s);
+  margin-block-end: var(--space-2);
+}
+
+/* Cards: rounded corners and a soft shimmer sweep across the surface. */
+body.wishcore-page .wishcore-card {
+  border-radius: 1.25rem;
+  background: linear-gradient(160deg, #ffffff, #fff2f8 60%, #eaf7ff);
+  box-shadow: 0 10px 30px -18px rgba(255, 143, 192, 0.55);
+  position: relative;
+  overflow: hidden;
+}
+
+body.wishcore-page .wishcore-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--wish-shimmer);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body.wishcore-page .wishcore-card::after {
+    animation: wishcore-shimmer 6s ease-in-out infinite;
+  }
+
+  @keyframes wishcore-shimmer {
+    0%, 60% { transform: translateX(-120%); }
+    100% { transform: translateX(120%); }
+  }
+}
+
+/* "Make a wish" disclosure control, revealed only once JS confirms it will work
+   (see the existing html.js pattern already used by the theme switcher). */
+html:not(.js) body.wishcore-page .wish-toggle {
+  display: none;
+}
+
+body.wishcore-page .wish-toggle {
+  display: inline-flex;
+  width: auto;
+  margin-inline: auto;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--surface-strong);
+  color: var(--accent);
+  font-weight: 700;
+  padding: 0.6rem 1.4rem;
+}
+
+body.wishcore-page .wish-toggle:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+body.wishcore-page .wish-toggle[aria-expanded="true"] {
+  background: var(--accent);
+  color: #fff;
+}
+
+body.wishcore-page .wish-note {
+  margin-block: var(--space-2);
+  padding: var(--space-2);
+  border-radius: 1rem;
+  border: 1px dashed var(--accent);
+  background: var(--wish-blue);
+  color: var(--ink);
+  text-align: center;
+}
+
+body.wishcore-page .wish-note[hidden] {
+  display: none;
+}
+
+body.wishcore-page .wishcore-note {
+  text-align: center;
+  color: var(--muted);
+  font-size: var(--text-s);
+}
+
+/* Keyboard focus must stay clearly visible even with the softer palette. */
+body.wishcore-page a:focus-visible,
+body.wishcore-page button:focus-visible {
+  outline: 3px solid var(--wish-blue);
+  outline-offset: 2px;
+}
