@@ -230,6 +230,14 @@ body.wishcore-page .wishcore-sparkles img:nth-child(56) { top: 70%; right: 30%; 
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  body.wishcore-page .wishcore-sparkles span,
+  body.wishcore-page .wishcore-sparkles .wishcore-sparkle-image {
+    animation: none;
+    transform: none;
+  }
+}
+
 body.wishcore-page .wishcore-eyebrow {
   text-align: center;
   color: var(--muted);
