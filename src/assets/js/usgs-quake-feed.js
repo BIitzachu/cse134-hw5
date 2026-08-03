@@ -88,7 +88,7 @@ class UsgsQuakeFeed extends HTMLElement {
     if (!this._ready) {
       this.replaceChildren(template.content.cloneNode(true));
       this._els = {
-        root: this.firstElementChild,
+        root: this.querySelector('.quake-feed'),
         title: this.querySelector('[data-title]'),
         status: this.querySelector('[data-status]'),
         list: this.querySelector('[data-list]'),
